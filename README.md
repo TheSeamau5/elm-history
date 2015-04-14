@@ -6,7 +6,7 @@ This library contains a set of the bindings to the HTML5 History API methods. Th
 ## Changing the url path
 You can change the url path by performing either the `setPath` or `replacePath` tasks
 
-- ##### `setPath`
+- `setPath`
 
 ```elm
 setPath : String -> Task error ()
@@ -14,7 +14,7 @@ setPath : String -> Task error ()
 
 `setPath` allows you to change the current url path. If you are familiar with the HTML5 History API, this is equivalent to calling, in Javascript, `history.pushState(null, "", path)`. `setPath` moves the browser history forwards, which means that if you press the browser's back button after performing the `setPath` task, you will go back to the previous page (the one before you have called `setPath`).
 
-- ##### `replacePath`
+- `replacePath`
 
 
 ```elm
@@ -34,7 +34,7 @@ In most cases, you will want to use `setPath`. If you use `setPath`, the previou
 
 You can move through the browser history by performing either the `back`, `forward`, or `go` tasks.
 
-- ##### `go`
+- `go`
 
 ```elm
 go : Int -> Task error ()
@@ -42,7 +42,7 @@ go : Int -> Task error ()
 
 The `go` task allows you to move either forwards or backwards in the browser history. If given a positive number, the browser will go forwards in the browser history by the given amount, if available. If given a negative number, the browser will go backwards in the browser history by the absolute value of the given amount, if available.
 
-- ##### `back`
+- `back`
 
 ```elm
 back : Task error ()
@@ -51,7 +51,7 @@ back : Task error ()
 Performing the `back` task is equivalent to pressing the browser back button or calling `go -1`. This will point the browser to the previous page, if available.
 
 
-- ##### `forward`
+- `forward`
 
 ```elm
 forward : Task error ()
@@ -64,7 +64,7 @@ Performing the `forward` task is equivalent to pressing the browser forward butt
 
 You can react to url path changes with the `path` signal, to url hash changes with the `hash` signal, and to general history changes with the `length` signal.
 
-- ##### `path`
+- `path`
 
 ```elm
 path : Signal String
@@ -81,7 +81,7 @@ Paths are usually of the form:
 /users/4973/profile.html
 ```
 
-- ##### `hash`
+- `hash`
 
 ```elm
 hash : Signal String
@@ -99,7 +99,7 @@ Hashes are usually of the form:
 #Biography
 ```
 
-- ##### `length`
+- `length`
 
 ```elm
 length : Signal Int
