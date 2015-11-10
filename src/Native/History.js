@@ -19,13 +19,21 @@ Elm.Native.History.make = function(localRuntime){
 
   // length : Signal Int
   var length = NS.input('History.length', window.history.length);
+  
+  // search : Signal String
+  var search = NS.input('History.search', window.location.search);
 
+  // href : Signal String
+  var href = NS.input('History.href', window.location.href);
+  
   // hash : Signal String
   var hash = NS.input('History.hash', window.location.hash);
 
-  localRuntime.addListener([path.id, length.id], node, 'popstate', function getPath(event){
+  localRuntime.addListener([path.id, length.id, href.id, search.id], node, 'popstate', function getPath(event){
     localRuntime.notify(path.id, window.location.pathname);
     localRuntime.notify(length.id, window.history.length);
+    localRuntime.notify(href.id, window.location.href);
+    localRuntime.notify(search.id, window.location.search);
     localRuntime.notify(hash.id, window.location.hash);
   });
 
@@ -97,6 +105,8 @@ Elm.Native.History.make = function(localRuntime){
 
   return {
     path        : path,
+    search      : search,
+    href        : href,
     setPath     : setPath,
     replacePath : replacePath,
     go          : go,

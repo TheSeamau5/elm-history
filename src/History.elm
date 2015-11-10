@@ -8,7 +8,7 @@ module History where
 @docs back, forward, go
 
 # URL path as input
-@docs path, hash, length
+@docs path, hash, length, href, search
 
 -}
 
@@ -105,3 +105,27 @@ Paths are of the form: `/myPath.html` or `/users/4873/profile.html`
 -}
 path : Signal String
 path = Native.History.path
+
+{-| The current href (i.e., entire url value).  The value is updated
+whenever it is changed, either through interaction or code.
+Use this when you need access to the entire url.
+
+Hrefs are of the form: `http://www.website.com/morePath/myPath.html` or
+`http://www.website.com/morePath/query?key1=val1&key2=val2`.
+-}
+
+href : Signal String
+href = Native.History.href
+
+{-| The current search string (i.e., query string).  The value is 
+updated whenever the url changes, either through interaction
+or code.  Use this when you need access to the search query.
+
+Search strings are of the form:  `?key1=val1` or `?key1=val1&key2=val2`.
+-}
+
+search : Signal String
+search = Native.History.search
+
+
+

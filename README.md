@@ -99,6 +99,38 @@ Hashes are usually of the form:
 #Biography
 ```
 
+- `href`
+
+```elm
+href : Signal String
+```
+
+This is a `Signal` of the entire url that changes whenever the url is modified, either by interaction or through code. Use this when you need access to the entire url.
+
+Hrefs are of the form:
+```
+http://www.website.com/morePath/myPath.html
+
+http://www.website.com/morePath/query?key1=val1&key2=val2
+```
+
+- `search`
+
+```elm
+search : Signal String
+```
+
+This is a `Signal` of the search string that changes whenever the url is modified, either by interaction or through code. Use this when you need access to the search string.
+
+Search strings are of the form:
+```
+?key=val
+
+?key1=val1&key2=val2
+
+?key1=val1&key2=val2&keyN=valN
+```
+
 - `length`
 
 ```elm
